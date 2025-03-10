@@ -1,0 +1,8 @@
+# Please fill in your local / hosted ip´s
+
+ALLOWED_HOSTS=http://localhost:4200,127.0.0.1,localhost
+
+
+# Django Debug Mode 
+
+DEBUG=True
