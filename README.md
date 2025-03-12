@@ -32,7 +32,7 @@ This project demonstrates a fully functional e-commerce application developed wi
 ## PREREQUISITES
 
 - **Python 3.12**
-- **Docker** https://www.docker.com/
+- **Docker** [(Download)](https://www.docker.com/get-started/)
 
 
 ## Quickstart 
