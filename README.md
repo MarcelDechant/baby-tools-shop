@@ -6,11 +6,9 @@ This project demonstrates a fully functional e-commerce application developed wi
 
 ## Table of Contents 
 
-1. [Technologies](#technologies) 
+1. [Prerequisites](#prerequisites) 
 2. [Quickstart](#quickstart)
-3. [Hints](#hints)  
-4. [Photos](#photos)  
-5. [Usage Section](#usage-section)  
+3. [Usage Section](#usage-section)
    - [Step 1: Clone repository](#step-1-clone-repository)  
    - [Step 2: Navigate into the project directory](#step-2-navigate-into-the-project-directory)  
    - [Step 3: Create a Virtual Environment](#step-3-create-a-virtual-environment)  
@@ -19,23 +17,22 @@ This project demonstrates a fully functional e-commerce application developed wi
    - [Step 6: Apply Database Migrations](#step-6-apply-database-migrations)  
    - [Step 7 (Optional): Create a Superuser](#step-7-optional-create-a-superuser)  
    - [Step 8: Start the Development Server](#step-8-start-the-development-server)  
-6. [Deploy with Docker](#deploy-with-docker)  
-   - [Step 9: Build the Docker Image](#step-9-build-the-docker-image)  
-   - [Step 10: Run the Docker Container](#step-10-run-the-docker-container)  
-   - [Step 11: Verify the Deployment](#step-11-verify-the-deployment)  
-7. [Project Structure](#project-structure)  
-8. [Configuration and Important Rules](#️-configuration-and-important-rules)  
+4. [Deploy with Docker](#deploy-with-docker)  
+   - [Step 1: Build the Docker Image](#step-9-build-the-docker-image)  
+   - [Step 2: Run the Docker Container](#step-10-run-the-docker-container)  
+   - [Step 3: Verify the Deployment](#step-11-verify-the-deployment)  
+5. [Project Structure](#project-structure)  
+6. [Configuration and Important Rules](#️-configuration-and-important-rules) 
    - [Key Configuration Files](#key-configuration-files)  
-   - [Important Points](#important-points)  
+   - [Important Points](#important-points)
+7. [Photos](#photos)
+8. [Hints](#hints)  
 9. [License](#license)  
 
-## TECHNOLOGIES
+## PREREQUISITES
 
-- **Python 3.11**
-- **Django 4.0.2**
-- **Venv**
-- **Git**  
-- **Docker** 
+- **Python 3.12**
+- **Docker** https://www.docker.com/
 
 
 ## Quickstart 
@@ -48,7 +45,11 @@ cd baby-tools-shop  # Navigate into the project directory
 ```
 
 2. Create the .env file
-Create a .env file based on the .envtemplate and adjust it as needed.
+Create a .env file based on the provided .envtemplate and adjust the settings as needed.
+```bash
+cp .envtemplate .env  # For macOS/Linux
+copy .envtemplate .env  # For Windows
+```
 
 
 3. Build and start the Docker container
@@ -61,41 +62,6 @@ docker run -d -p 8025:8025 --name baby-tools-container baby-tools-shop
 4. Access the application:
 Open your browser and visit:
 Visit `http://<YOUR_IP_ADRESS>:8025` in your browser.
-
-5. Create a Django Admin User (Optional):
-``` bash
-docker exec -it <CONTAINER_ID> /bin/bash
-python manage.py createsuperuser
-```
-
-
-### Hints
-
-- **Settings & Configuration**: Found in `babyshop_app/babyshop/settings.py`.  
-- **Routing**: Check `urls.py` files in `babyshop` directorie.
-
-### Photos
-
-##### Home Page with login
-
-<img alt="" src="project_images/capture_20220323080815407.jpg"></img>
-##### Home Page with filter
-<img alt="" src="project_images/capture_20220323080840305.jpg"></img>
-##### Product Detail Page
-<img alt="" src="project_images/capture_20220323080934541.jpg"></img>
-
-##### Home Page with no login
-<img alt="" src="project_images/capture_20220323080953570.jpg"></img>
-
-
-##### Register Page
-
-<img alt="" src="project_images/capture_20220323081016022.jpg"></img>
-
-
-##### Login Page
-
-<img alt="" src="project_images/capture_20220323081044867.jpg"></img>
 
 
 ## Usage Section
@@ -111,7 +77,6 @@ git clone https://github.com/MarcelDechant/baby-tools-shop
 cd baby-tools-shop
 ```
 ### Step 3: Create a Virtual Environment
-To keep dependencies organized, create and activate a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
@@ -154,14 +119,14 @@ http://127.0.0.1:8025
 ```
 ## Deploy with Docker 🐳
 The project includes a Dockerfile to containerize the application. Follow these steps to build and run the Docker container.
-### Step 9: Build the Docker Image
+### Step 1: Build the Docker Image
 Make sure you're in the project root directory and run:
 ```bash
 docker build -t baby-tools-shop .
 ```
 This will create a Docker image named baby-tools-shop.
 
-### Step 10: Run the Docker Container
+### Step 2: Run the Docker Container
 Start the container using:
 ```bash
 docker run -d -p 8025:8025 --name baby-tools-container baby-tools-shop
@@ -170,7 +135,7 @@ docker run -d -p 8025:8025 --name baby-tools-container baby-tools-shop
 - The -p 8025:8025 maps the container port to the host machine.
 - The --name baby-tools-container assigns a name to the running container.
 
-### Step 11: Verify the Deployment
+### Step 3: Verify the Deployment
 Once the container is running, access the application in your browser:
 ```bash
 http://<YOUR_IP_ADDRESS>:8025
@@ -204,11 +169,41 @@ baby-tools-shop/
 - `requirements`.txt: Python dependencies
 - `Dockerfile`: Docker configuration
 
+
 #### Important Points
 - **Containerization**: The Docker image makes the application portable and consistent across all environments.
 
 - **Port Configuration:** The specification `0.0.0.0:8025` and Docker port mapping are crucial for external access.
 
+
+### Photos
+
+##### Home Page with login
+
+<img alt="" src="project_images/capture_20220323080815407.jpg"></img>
+##### Home Page with filter
+<img alt="" src="project_images/capture_20220323080840305.jpg"></img>
+##### Product Detail Page
+<img alt="" src="project_images/capture_20220323080934541.jpg"></img>
+
+##### Home Page with no login
+<img alt="" src="project_images/capture_20220323080953570.jpg"></img>
+
+
+##### Register Page
+
+<img alt="" src="project_images/capture_20220323081016022.jpg"></img>
+
+
+##### Login Page
+
+<img alt="" src="project_images/capture_20220323081044867.jpg"></img>
+
+
+### Hints
+
+- **Settings & Configuration**: Found in `babyshop_app/babyshop/settings.py`.  
+- **Routing**: Check `urls.py` files in `babyshop` directorie.
 
 
 ##  License
