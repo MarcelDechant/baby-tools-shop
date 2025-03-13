@@ -1,0 +1,10 @@
+# Please fill in your local / hosted ip´s
+
+ALLOWED_HOSTS=http://localhost:4200,127.0.0.1,localhost
+
+# Django Debug Mode 
+
+DEBUG=True
+
+# Django Secret Key
+SECRET_KEY=django-insecure-4x$#1v8&7f@zq2h9jkm!s%y3l&d)g@u8+^=z3t@o#5i1l0j)u!
